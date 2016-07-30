@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class KorozesJarmuLap : Form
+    internal sealed partial class KorozesJarmuLap : Form
     {
         internal KorozesJarmuLap()
         {
@@ -39,8 +39,21 @@ namespace SeeWanted
                 MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
                 return;
             }
-            //todo: upload/update
-            MessageBox.Show("Sikeresen kiadtál egy körözést!", "SeeWanted");
+            var dnow = DateTime.Now;
+            string s = Communicator.SendMessage(((int)Communicator.Codes.RegisterVehicle) + "=" + textBox1.Text + "<" +
+                textBox2.Text + "<" +
+                textBox3.Text + "<" +
+                textBox4.Text + "<" +
+                textBox5.Text + "<" +
+                Login.User + "<" +
+                dnow + "<" +
+                dnow.AddDays(7)
+                );
+            var num = int.Parse(s.Split(Convert.ToChar("="))[0]);
+            if ((Communicator.Codes)num == Communicator.Codes.OkRVehicle)
+            {
+                MessageBox.Show("Sikeresen kiadtál egy körözést!", "SeeWanted");
+            }
             this.Close();
         }
     }

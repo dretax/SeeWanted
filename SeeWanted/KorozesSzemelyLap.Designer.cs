@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KorozesSzemelyLap));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(27, 143);
+            this.textBox4.MaxLength = 600;
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(381, 141);
@@ -89,6 +91,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(27, 89);
+            this.textBox3.MaxLength = 80;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(381, 20);
             this.textBox3.TabIndex = 5;
@@ -107,6 +110,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(228, 36);
+            this.textBox2.MaxLength = 40;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(180, 20);
             this.textBox2.TabIndex = 0;
@@ -134,6 +138,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(27, 36);
+            this.textBox1.MaxLength = 40;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(180, 20);
             this.textBox1.TabIndex = 0;
@@ -146,6 +151,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(449, 344);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KorozesSzemelyLap";
             this.Text = "Körözés Kiadatása Személyre";
             this.groupBox1.ResumeLayout(false);

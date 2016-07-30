@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SeeWanted")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DreTaX")]
+[assembly: AssemblyCompany("DreTaX & Gartand")]
 [assembly: AssemblyProduct("SeeWanted")]
-[assembly: AssemblyCopyright("Copyright © DreTaX 2016")]
+[assembly: AssemblyCopyright("Copyright © DreTaX & Gartand 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
