@@ -67,6 +67,13 @@ namespace SeeWanted
 
             var getcurrentfaction = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
             string[] factionsplit = getcurrentfaction.Split(Convert.ToChar("="));
+
+            if (factionsplit[1].Contains("null"))
+            {
+                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                return;
+            }
+
             string[] fsplit = factionsplit[1].Split(Convert.ToChar(Communicator.Separator));
             string faction = fsplit[2];
             if (!string.IsNullOrEmpty(textBox3.Text))
@@ -105,6 +112,15 @@ namespace SeeWanted
         {
             if (listView1.SelectedItems.Count > 0)
             {
+                var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
+                string[] getuserdataspl = getuserdata.Split(Convert.ToChar("="));
+
+                if (getuserdataspl[1].Contains("null"))
+                {
+                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    return;
+                }
+
                 List<int> indexes = new List<int>();
                 List<string> names = new List<string>();
                 for (int i = 0; i < listView1.SelectedItems.Count ; i++)

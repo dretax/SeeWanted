@@ -110,19 +110,42 @@ namespace SeeWanted
             var selected = Persons.SelectedIndex;
             if (selected >= 0)
             {
+                var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
+                string[] getuserdataspl = getuserdata.Split(Convert.ToChar("="));
+
+                if (getuserdataspl[1].Contains("null"))
+                {
+                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    return;
+                }
+
                 Persons.SelectedIndex = selected;
                 int sindex = Persons.SelectedIndex;
                 string key = Persons.GetItemText(Persons.SelectedItem);
-                key = sindex + key;
-                var num = WPC[key];
-                string msg = Communicator.SendMessage((int)Communicator.Codes.DeletePerson + "=" + num + Communicator.Separator + Login.User);
-                if ((Communicator.Codes) int.Parse(msg.Split(Convert.ToChar("="))[0]) == Communicator.Codes.DeleteFail)
+                string key2 = sindex + key;
+                var num = WPC[key2];
+                DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
-                    return;
+                    string msg =
+                        Communicator.SendMessage((int) Communicator.Codes.DeletePerson + "=" + num +
+                                                 Communicator.Separator + Login.User);
+                    if ((Communicator.Codes) int.Parse(msg.Split(Convert.ToChar("="))[0]) ==
+                        Communicator.Codes.DeleteFail)
+                    {
+                        MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
+                        return;
+                    }
+                    try
+                    {
+                        Persons.Items.RemoveAt(selected);
+                    }
+                    catch
+                    {
+                        
+                    }
+                    RunUpdate();
                 }
-                Persons.Items.RemoveAt(selected);
-                RunUpdate();
             }
         }
 
@@ -134,21 +157,41 @@ namespace SeeWanted
                 return;
             }
             var selected = Vehicles.SelectedIndex;
-            if (Vehicles.SelectedIndex >= 0)
+            if (selected >= 0)
             {
+                var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
+                string[] getuserdataspl = getuserdata.Split(Convert.ToChar("="));
+
+                if (getuserdataspl[1].Contains("null"))
+                {
+                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    return;
+                }
+
                 Vehicles.SelectedIndex = selected;
                 int sindex = Vehicles.SelectedIndex;
                 string key = Vehicles.GetItemText(Vehicles.SelectedItem);
-                key = sindex + key;
-                var num = WCC[key];
-                string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User);
-                if ((Communicator.Codes)int.Parse(msg.Split(Convert.ToChar("="))[0]) == Communicator.Codes.DeleteFail)
+                string key2 = sindex + key;
+                var num = WCC[key2];
+                DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
-                    return;
+                    string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User);
+                    if ((Communicator.Codes)int.Parse(msg.Split(Convert.ToChar("="))[0]) == Communicator.Codes.DeleteFail)
+                    {
+                        MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
+                        return;
+                    }
+                    try
+                    {
+                        Vehicles.Items.RemoveAt(Vehicles.SelectedIndex);
+                    }
+                    catch
+                    {
+                        
+                    }
+                    RunUpdate();
                 }
-                Vehicles.Items.RemoveAt(Vehicles.SelectedIndex);
-                RunUpdate();
             }
         }
 

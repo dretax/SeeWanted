@@ -79,6 +79,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(391, 124);
             this.textBox5.TabIndex = 10;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox4
             // 
@@ -148,7 +149,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(17, 172);
+            this.textBox8.Location = new System.Drawing.Point(17, 183);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -159,7 +160,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 156);
+            this.label8.Location = new System.Drawing.Point(43, 159);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 4;
@@ -167,17 +168,18 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(17, 98);
+            this.textBox7.Location = new System.Drawing.Point(17, 109);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(126, 44);
             this.textBox7.TabIndex = 3;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 82);
+            this.label7.Location = new System.Drawing.Point(43, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 2;
@@ -186,9 +188,10 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(17, 45);
+            this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(126, 20);
+            this.textBox6.Size = new System.Drawing.Size(126, 45);
             this.textBox6.TabIndex = 1;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 

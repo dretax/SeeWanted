@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Panel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -37,7 +38,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Körözési Panel";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(117, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "By DreTaX and Gartand";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -77,7 +86,7 @@
             0,
             0});
             this.numericUpDown1.Minimum = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -142,15 +151,6 @@
             this.button1.Text = "Körözés Kiadatása Személyre";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(117, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "By DreTaX and Gartand";
             // 
             // Panel
             // 

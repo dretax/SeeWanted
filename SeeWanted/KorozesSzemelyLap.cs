@@ -29,6 +29,15 @@ namespace SeeWanted
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
+            string[] getuserdataspl = getuserdata.Split(Convert.ToChar("="));
+
+            if (getuserdataspl[1].Contains("null"))
+            {
+                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                return;
+            }
+
             if (textBox1.Text == "Ha ismert...(Példa)")
             {
                 MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
@@ -54,7 +63,7 @@ namespace SeeWanted
                 textBox2.Text + "<" +
                 textBox3.Text + "<" +
                 textBox4.Text + "<" +
-                Login.User + "<" +
+                Login.User + " - " + Login.Faction + "<" +
                 dnow + "<" +
                 dnow.AddDays(7)
                 );

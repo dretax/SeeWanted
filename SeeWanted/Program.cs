@@ -18,7 +18,7 @@ namespace SeeWanted
         internal static Bitmap nni = SeeWanted.Properties.Resources.nni;
         internal static Bitmap adm = SeeWanted.Properties.Resources.adm;
         internal static ImageList ImgList;
-        internal const string Version = "1.0";
+        internal const string Version = "1.1";
 
 
         [STAThread]
