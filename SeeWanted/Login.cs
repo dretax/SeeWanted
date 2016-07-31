@@ -61,7 +61,8 @@ namespace SeeWanted
                 string version = Communicator.SendMessage((int)Communicator.Codes.Version + "=Requesting");
                 if (version.Split(Convert.ToChar("="))[1] != Program.Version)
                 {
-                    MessageBox.Show("Régebbi verziót használsz mint a szerver! Frissítsd!", "SeeWanted");
+                    MessageBox.Show("Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
+                    System.Diagnostics.Process.Start("https://www.dropbox.com/s/8qbw54glkqx31f7/SeeWanted.exe?dl=0");
                     Close();
                 }
             }
@@ -81,7 +82,8 @@ namespace SeeWanted
                 string version = Communicator.SendMessage((int)Communicator.Codes.Version + "=Requesting");
                 if (version.Split(Convert.ToChar("="))[1] != Program.Version)
                 {
-                    MessageBox.Show("Régebbi verziót használsz mint a szerver! Frissítsd!", "SeeWanted");
+                    MessageBox.Show("Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
+                    System.Diagnostics.Process.Start("https://www.dropbox.com/s/8qbw54glkqx31f7/SeeWanted.exe?dl=0");
                     Close();
                 }
             }

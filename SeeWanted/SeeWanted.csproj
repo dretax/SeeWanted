@@ -11,6 +11,7 @@
     <AssemblyName>SeeWanted</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,7 +48,7 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SeeWanted.pfx</AssemblyOriginatorKeyFile>
@@ -70,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Communicator.cs" />
+    <Compile Include="KorozesJarmuTorolt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KorozesJarmuTorolt.Designer.cs">
+      <DependentUpon>KorozesJarmuTorolt.cs</DependentUpon>
+    </Compile>
     <Compile Include="KorozesJarmu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="KorozesSzemelyLap.Designer.cs">
       <DependentUpon>KorozesSzemelyLap.cs</DependentUpon>
     </Compile>
+    <Compile Include="KorozottSzemelyTorolt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KorozottSzemelyTorolt.Designer.cs">
+      <DependentUpon>KorozottSzemelyTorolt.cs</DependentUpon>
+    </Compile>
     <Compile Include="KorozottSzemely.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,12 @@
     </Compile>
     <Compile Include="Leader.Designer.cs">
       <DependentUpon>Leader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaTorolt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaTorolt.Designer.cs">
+      <DependentUpon>ListaTorolt.cs</DependentUpon>
     </Compile>
     <Compile Include="Lista.cs">
       <SubType>Form</SubType>
@@ -112,6 +130,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nyilvantartas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nyilvantartas.Designer.cs">
+      <DependentUpon>Nyilvantartas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +144,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="KorozesJarmuTorolt.resx">
+      <DependentUpon>KorozesJarmuTorolt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KorozesJarmu.resx">
       <DependentUpon>KorozesJarmu.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,17 +156,26 @@
     <EmbeddedResource Include="KorozesSzemelyLap.resx">
       <DependentUpon>KorozesSzemelyLap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KorozottSzemelyTorolt.resx">
+      <DependentUpon>KorozottSzemelyTorolt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KorozottSzemely.resx">
       <DependentUpon>KorozottSzemely.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Leader.resx">
       <DependentUpon>Leader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListaTorolt.resx">
+      <DependentUpon>ListaTorolt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lista.resx">
       <DependentUpon>Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nyilvantartas.resx">
+      <DependentUpon>Nyilvantartas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panel.resx">
       <DependentUpon>Panel.cs</DependentUpon>

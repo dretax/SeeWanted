@@ -22,11 +22,6 @@ namespace SeeWanted
             Panel.childForm3 = null;
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
@@ -46,6 +41,13 @@ namespace SeeWanted
             if (textBox4.Text == "REM,RUM(Példa)")
             {
                 MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
+                return;
+            }
+            if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text) ||
+                !Program.CheckForChars(textBox3.Text) || !Program.CheckForChars(textBox4.Text) || 
+                !Program.CheckForChars(textBox5.Text))
+            {
+                MessageBox.Show("Ne használj ~-<= karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
             var dnow = DateTime.Now;

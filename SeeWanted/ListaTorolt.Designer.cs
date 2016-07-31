@@ -1,6 +1,6 @@
 ﻿namespace SeeWanted
 {
-    partial class Lista
+    partial class ListaTorolt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lista));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaTorolt));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Persons = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.Vehicles = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -45,34 +42,23 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Persons);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 476);
+            this.groupBox1.Size = new System.Drawing.Size(376, 476);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Körözött Személyek";
+            this.groupBox1.Text = "Archivált Körözések (Személyek)";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(87, 436);
+            this.button3.Location = new System.Drawing.Point(84, 423);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(209, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "Részletek Megtekintése";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(87, 407);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Kiválasztott (Személy) Körözés Törlése";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Persons
             // 
@@ -85,18 +71,17 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.Vehicles);
-            this.groupBox2.Location = new System.Drawing.Point(393, 12);
+            this.groupBox2.Location = new System.Drawing.Point(394, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 476);
+            this.groupBox2.Size = new System.Drawing.Size(348, 476);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Körözött Járművek";
+            this.groupBox2.Text = "Archivált Körözések (Járművek)";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(64, 436);
+            this.button4.Location = new System.Drawing.Point(74, 423);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(210, 23);
             this.button4.TabIndex = 2;
@@ -104,45 +89,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(64, 407);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Kiválasztott (Jármű) Körözés Törlése";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Vehicles
             // 
             this.Vehicles.FormattingEnabled = true;
             this.Vehicles.Location = new System.Drawing.Point(6, 20);
             this.Vehicles.Name = "Vehicles";
-            this.Vehicles.Size = new System.Drawing.Size(337, 381);
+            this.Vehicles.Size = new System.Drawing.Size(336, 381);
             this.Vehicles.TabIndex = 0;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(313, 494);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(142, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Archivum";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // Lista
+            // ListaTorolt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 527);
-            this.Controls.Add(this.button5);
+            this.ClientSize = new System.Drawing.Size(754, 495);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Lista";
-            this.Text = "Körözési Lista Személyek/Járművek";
+            this.Name = "ListaTorolt";
+            this.Text = "Archivált Személy/Jármű Körözések";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -155,10 +119,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox Persons;
         private System.Windows.Forms.ListBox Vehicles;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
     }
 }

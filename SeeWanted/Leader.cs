@@ -16,6 +16,7 @@ namespace SeeWanted
         {
             Closing += Form1_FormClosing;
             InitializeComponent();
+            button2.ForeColor = Color.Red;
             RunUpdate();
         }
 
@@ -126,6 +127,12 @@ namespace SeeWanted
                 for (int i = 0; i < listView1.SelectedItems.Count ; i++)
                 {
                     var x = listView1.SelectedItems[i];
+                    DialogResult dialogResult = MessageBox.Show("Választott felhasználó: " + x.Text, "Biztosan törölni akarod?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        continue;
+                    }
+
                     var getcurrentfaction = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + x.Text);
                     string[] factionsplit = getcurrentfaction.Split(Convert.ToChar("="));
                     string[] fsplit = factionsplit[1].Split(Convert.ToChar(Communicator.Separator));
@@ -174,19 +181,16 @@ namespace SeeWanted
                 {
                     Communicator.SendMessage((int) Communicator.Codes.DeleteUser + "=" + x + Communicator.Separator + Login.Faction);
                 }
-                MessageBox.Show("Azon felhasználók melyekre jogusultsággal rendelkeztél törölve lettek");
+                if (indexes.Count > 0)
+                {
+                    MessageBox.Show("A kiválasztott felhasználók melyekre jogusultsággal rendelkeztél törölve lettek", "SeeWanted");
+                }
+                else
+                {
+                    MessageBox.Show("Törlés megszakítva, vagy nem rendelkeztél elég jogusultsággal a törléshez.", "SeeWanted");
+                }
                 RunUpdate();
             }
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

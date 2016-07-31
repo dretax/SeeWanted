@@ -127,7 +127,6 @@
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Egyéb Információ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 

@@ -58,6 +58,12 @@ namespace SeeWanted
                 MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
                 return;
             }
+            if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text) ||
+                !Program.CheckForChars(textBox3.Text) || !Program.CheckForChars(textBox4.Text))
+            {
+                MessageBox.Show("Ne használj ~-<= karaktereket a jelentésben!", "SeeWanted");
+                return;
+            }
             var dnow = DateTime.Now;
             string s = Communicator.SendMessage(((int)Communicator.Codes.RegisterPerson) + "=" + textBox1.Text + "<" +
                 textBox2.Text + "<" +

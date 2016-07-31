@@ -17,6 +17,7 @@ namespace SeeWanted
         internal static Lista childForm2;
         internal static KorozesJarmuLap childForm3;
         internal static Leader childForm4;
+        internal static Nyilvantartas childForm5;
         internal static bool Notification = true;
         internal static Timer _timer;
         private Login _inst;
@@ -108,6 +109,17 @@ namespace SeeWanted
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Notification = checkBox1.Checked;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("A nyílvántartások felülete félig van kész, közvetkező verzióban bent lesz!", "SeeWanted");
+            return;
+            if (childForm5 == null)
+            {
+                childForm5 = new Nyilvantartas();
+                childForm5.Show();
+            }
         }
     }
 }

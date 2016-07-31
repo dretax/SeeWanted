@@ -39,7 +39,12 @@ namespace SeeWanted
             DeleteVehicleOk,
             Version,
             RequestCheck,
-            Alert
+            Alert,
+            GetAllArchivedV,
+            GetAllArchivedP,
+            GetBookedPersons,
+            DeleteBookedP,
+            AddBookedP
         }
 
         internal static string SendMessage(string msg)

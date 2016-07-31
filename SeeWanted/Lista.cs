@@ -17,6 +17,7 @@ namespace SeeWanted
         internal static Dictionary<string, int> WCC;
         private KorozottSzemely childForm;
         private KorozesJarmu childForm2;
+        internal static ListaTorolt childForm3;
         internal static Lista ListaInstance;
         internal static bool IsUpdating = false;
         internal static int VK = 0;
@@ -30,6 +31,9 @@ namespace SeeWanted
             WPC = new Dictionary<string, int>();
             WCC = new Dictionary<string, int>();
             InitializeComponent();
+            button1.ForeColor = Color.Red;
+            button2.ForeColor = Color.Red;
+            button5.ForeColor = Color.Green;
             ListaInstance = this;
             RunUpdate();
         }
@@ -210,6 +214,15 @@ namespace SeeWanted
             {
                 KorozottSzemely kj = WP[Persons.SelectedIndex + Persons.GetItemText(Persons.Items[Persons.SelectedIndex])];
                 kj.Show();
+            }
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            if (childForm3 == null)
+            {
+                childForm3 = new ListaTorolt();
+                childForm3.Show();
             }
         }
     }

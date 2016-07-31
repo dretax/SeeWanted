@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class KorozottSzemely : Form
+    internal partial class KorozottSzemelyTorolt : Form
     {
-        internal KorozottSzemely()
+        internal KorozottSzemelyTorolt()
         {
             Closing += Form1_FormClosing;
             InitializeComponent();
@@ -76,6 +76,14 @@ namespace SeeWanted
             get
             {
                 return textBox7;
+            }
+        }
+
+        internal TextBox TextB8
+        {
+            get
+            {
+                return textBox8;
             }
         }
     }
