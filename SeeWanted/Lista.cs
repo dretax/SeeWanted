@@ -49,24 +49,31 @@ namespace SeeWanted
             WCC.Clear();
             foreach (var x in vehicles)
             {
-                if (string.IsNullOrEmpty(x))
+                try
                 {
-                    continue;
+                    if (string.IsNullOrEmpty(x))
+                    {
+                        continue;
+                    }
+                    var y = x.Split(Convert.ToChar("$"));
+                    childForm2 = new KorozesJarmu();
+                    string[] vehicles2 = y[1].Split(Convert.ToChar("<"));
+                    int iss = this.Vehicles.Items.Add(vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )");
+                    WC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", childForm2);
+                    WCC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", int.Parse(y[0]));
+                    childForm2.TextB1.Text = vehicles2[0];
+                    childForm2.TextB2.Text = vehicles2[1];
+                    childForm2.TextB3.Text = vehicles2[2];
+                    childForm2.TextB4.Text = vehicles2[3];
+                    childForm2.TextB5.Text = vehicles2[4];
+                    childForm2.TextB6.Text = vehicles2[5];
+                    childForm2.TextB7.Text = vehicles2[6];
+                    childForm2.TextB8.Text = vehicles2[7];
                 }
-                var y = x.Split(Convert.ToChar("$"));
-                childForm2 = new KorozesJarmu();
-                string[] vehicles2 = y[1].Split(Convert.ToChar("<"));
-                childForm2.TextB1.Text = vehicles2[0];
-                childForm2.TextB2.Text = vehicles2[1];
-                childForm2.TextB3.Text = vehicles2[2];
-                childForm2.TextB4.Text = vehicles2[3];
-                childForm2.TextB5.Text = vehicles2[4];
-                childForm2.TextB6.Text = vehicles2[5];
-                childForm2.TextB7.Text = vehicles2[6];
-                childForm2.TextB8.Text = vehicles2[7];
-                int iss = this.Vehicles.Items.Add(vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )");
-                WC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", childForm2);
-                WCC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", int.Parse(y[0]));
+                catch
+                {
+                    
+                }
             }
             VK = WC.Keys.Count;
 
@@ -77,23 +84,30 @@ namespace SeeWanted
             WPC.Clear();
             foreach (var x in persons)
             {
-                if (string.IsNullOrEmpty(x))
+                try
                 {
-                    continue;
+                    if (string.IsNullOrEmpty(x))
+                    {
+                        continue;
+                    }
+                    childForm = new KorozottSzemely();
+                    var y = x.Split(Convert.ToChar("$"));
+                    string[] persons2 = y[1].Split(Convert.ToChar("<"));
+                    int iss = this.Persons.Items.Add(persons2[0] + " (" + persons2[1] + " )");
+                    WP.Add(iss + persons2[0] + " (" + persons2[1] + " )", childForm);
+                    WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(y[0]));
+                    childForm.TextB1.Text = persons2[5];
+                    childForm.TextB2.Text = persons2[4];
+                    childForm.TextB3.Text = persons2[3];
+                    childForm.TextB4.Text = persons2[2];
+                    childForm.TextB5.Text = persons2[0];
+                    childForm.TextB6.Text = persons2[1];
+                    childForm.TextB7.Text = persons2[6];
                 }
-                childForm = new KorozottSzemely();
-                var y = x.Split(Convert.ToChar("$"));
-                string[] persons2 = y[1].Split(Convert.ToChar("<"));
-                childForm.TextB1.Text = persons2[5];
-                childForm.TextB2.Text = persons2[4];
-                childForm.TextB3.Text = persons2[3];
-                childForm.TextB4.Text = persons2[2];
-                childForm.TextB5.Text = persons2[0];
-                childForm.TextB6.Text = persons2[1];
-                childForm.TextB7.Text = persons2[6];
-                int iss = this.Persons.Items.Add(persons2[0] + " (" + persons2[1] + " )");
-                WP.Add(iss + persons2[0] + " (" + persons2[1] + " )", childForm);
-                WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(y[0]));
+                catch
+                {
+                    
+                }
             }
             PK = WP.Keys.Count;
         }
@@ -106,6 +120,11 @@ namespace SeeWanted
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox1.Text) || textBox1.Text.Length < 3)
+            {
+                MessageBox.Show("Add meg a törlés okát!", "SeeWanted");
+                return;
+            }
             if (IsUpdating)
             {
                 MessageBox.Show("Lista frissítés futott, próbáld meg ez után.", "SeeWanted");
@@ -120,6 +139,7 @@ namespace SeeWanted
                 if (getuserdataspl[1].Contains("null"))
                 {
                     MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    Panel.PanelForm.Close();
                     return;
                 }
 
@@ -133,13 +153,14 @@ namespace SeeWanted
                 {
                     string msg =
                         Communicator.SendMessage((int) Communicator.Codes.DeletePerson + "=" + num +
-                                                 Communicator.Separator + Login.User);
+                                                 Communicator.Separator + Login.User + Communicator.Separator + textBox1.Text);
                     if ((Communicator.Codes) int.Parse(msg.Split(Convert.ToChar("="))[0]) ==
                         Communicator.Codes.DeleteFail)
                     {
                         MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
                         return;
                     }
+                    textBox1.Text = "";
                     try
                     {
                         Persons.Items.RemoveAt(selected);
@@ -155,6 +176,11 @@ namespace SeeWanted
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox2.Text) || textBox2.Text.Length < 3)
+            {
+                MessageBox.Show("Add meg a törlés okát!", "SeeWanted");
+                return;
+            }
             if (IsUpdating)
             {
                 MessageBox.Show("Lista frissítés futott, próbáld meg ez után.", "SeeWanted");
@@ -169,6 +195,7 @@ namespace SeeWanted
                 if (getuserdataspl[1].Contains("null"))
                 {
                     MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    Panel.PanelForm.Close();
                     return;
                 }
 
@@ -180,12 +207,13 @@ namespace SeeWanted
                 DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User);
+                    string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User + Communicator.Separator + textBox2.Text);
                     if ((Communicator.Codes)int.Parse(msg.Split(Convert.ToChar("="))[0]) == Communicator.Codes.DeleteFail)
                     {
                         MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
                         return;
                     }
+                    textBox2.Text = "";
                     try
                     {
                         Vehicles.Items.RemoveAt(Vehicles.SelectedIndex);

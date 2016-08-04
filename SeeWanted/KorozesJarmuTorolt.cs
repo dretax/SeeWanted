@@ -96,39 +96,12 @@ namespace SeeWanted
             }
         }
 
-        private void KorozesJarmu_Load(object sender, EventArgs e)
+        internal TextBox TextB10
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
+            get
+            {
+                return textBox10;
+            }
         }
     }
 }

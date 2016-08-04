@@ -18,6 +18,7 @@ namespace SeeWanted
         internal static KorozesJarmuLap childForm3;
         internal static Leader childForm4;
         internal static Nyilvantartas childForm5;
+        internal static Panel PanelForm = null;
         internal static bool Notification = true;
         internal static Timer _timer;
         private Login _inst;
@@ -27,6 +28,7 @@ namespace SeeWanted
             _inst = instance;
             Closing += Form1_FormClosing;
             InitializeComponent();
+            PanelForm = this;
             if (!Program.Leader)
             {
                 button4.Hide();
@@ -53,6 +55,10 @@ namespace SeeWanted
                     player.Play();
                 }
                 Lista.IsUpdating = false;
+            }
+            if (Nyilvantartas.NyilvantartasInst != null)
+            {
+                Nyilvantartas.NyilvantartasInst.RunUpdate();
             }
             _timer = new Timer((double)(this.numericUpDown1.Value * 1000));
             _timer.Elapsed += new ElapsedEventHandler(CheckList);
@@ -113,8 +119,6 @@ namespace SeeWanted
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("A nyílvántartások felülete félig van kész, közvetkező verzióban bent lesz!", "SeeWanted");
-            return;
             if (childForm5 == null)
             {
                 childForm5 = new Nyilvantartas();

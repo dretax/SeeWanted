@@ -61,6 +61,7 @@ namespace SeeWanted
                 childForm2.TextB7.Text = vehicles2[6];
                 childForm2.TextB8.Text = vehicles2[7];
                 childForm2.TextB9.Text = vehicles2[8];
+                childForm2.TextB10.Text = vehicles2.Length == 10 ? vehicles2[9] : "Nincs";
                 int iss = this.Vehicles.Items.Add(vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )");
                 WC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", childForm2);
                 WCC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", int.Parse(y[0]));
@@ -89,6 +90,7 @@ namespace SeeWanted
                 childForm.TextB6.Text = persons2[1];
                 childForm.TextB7.Text = persons2[6];
                 childForm.TextB8.Text = persons2[7];
+                childForm.TextB9.Text = persons2.Length == 9 ? persons2[8] : "Nincs";
                 int iss = this.Persons.Items.Add(persons2[0] + " (" + persons2[1] + " )");
                 WP.Add(iss + persons2[0] + " (" + persons2[1] + " )", childForm);
                 WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(y[0]));

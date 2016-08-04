@@ -86,5 +86,13 @@ namespace SeeWanted
                 return textBox8;
             }
         }
+
+        internal TextBox TextB9
+        {
+            get
+            {
+                return textBox9;
+            }
+        }
     }
 }

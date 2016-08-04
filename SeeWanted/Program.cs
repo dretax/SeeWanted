@@ -18,7 +18,7 @@ namespace SeeWanted
         internal static Bitmap nni = SeeWanted.Properties.Resources.nni;
         internal static Bitmap adm = SeeWanted.Properties.Resources.adm;
         internal static ImageList ImgList;
-        internal const string Version = "1.2";
+        internal const string Version = "1.3";
 
 
         [STAThread]
@@ -46,7 +46,7 @@ namespace SeeWanted
 
         internal static bool CheckForChars(string s)
         {
-            return !s.Contains("~") && !s.Contains("<") && !s.Contains("=") && !s.Contains("-");
+            return !s.Contains("~") && !s.Contains("<") && !s.Contains("=");
         }
     }
 }
