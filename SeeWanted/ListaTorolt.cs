@@ -38,20 +38,24 @@ namespace SeeWanted
         {
             Vehicles.Items.Clear();
             Persons.Items.Clear();
-            string s2 = Communicator.SendMessage(((int)Communicator.Codes.GetAllArchivedV) + "=");
-            string[] split2 = s2.Split(Convert.ToChar("="));
-            string[] vehicles = split2[1].Split(Convert.ToChar(Communicator.Separator));
+            //string s2 = Communicator.SendMessage(((int)Communicator.Codes.GetAllArchivedV) + "=");
+            string keys = Communicator.SendMessage((int) Communicator.Codes.GetAllArchivedVKeys + "=");
+            string[] split2 = keys.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("$"));
+            //string[] split2 = s2.Split(Convert.ToChar("="));
+            //string[] vehicles = split2[1].Split(Convert.ToChar(Communicator.Separator));
             WC.Clear();
             WCC.Clear();
-            foreach (var x in vehicles)
+            foreach (var x in split2)
             {
                 if (string.IsNullOrEmpty(x))
                 {
                     continue;
                 }
-                var y = x.Split(Convert.ToChar("$"));
+                string keydata = Communicator.SendMessage((int)Communicator.Codes.GetArchivedVKey + "=" + x);
+                string[] vehicles2 = keydata.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("<"));
+                //MessageBox.Show(string.Join(" ", vehicles2));
+                //var y = x.Split(Convert.ToChar("$"));
                 childForm2 = new KorozesJarmuTorolt();
-                string[] vehicles2 = y[1].Split(Convert.ToChar("<"));
                 childForm2.TextB1.Text = vehicles2[0];
                 childForm2.TextB2.Text = vehicles2[1];
                 childForm2.TextB3.Text = vehicles2[2];
@@ -64,24 +68,26 @@ namespace SeeWanted
                 childForm2.TextB10.Text = vehicles2.Length == 10 ? vehicles2[9] : "Nincs";
                 int iss = this.Vehicles.Items.Add(vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )");
                 WC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", childForm2);
-                WCC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", int.Parse(y[0]));
+                WCC.Add(iss + vehicles2[0] + " (" + vehicles2[1] + " | " + vehicles2[2] + " )", int.Parse(x));
             }
             VK = WC.Keys.Count;
 
-            string s = Communicator.SendMessage(((int)Communicator.Codes.GetAllArchivedP) + "=");
-            string[] split1 = s.Split(Convert.ToChar("="));
-            string[] persons = split1[1].Split(Convert.ToChar(Communicator.Separator));
+            string keys2 = Communicator.SendMessage((int)Communicator.Codes.GetAllArchivedPKeys + "=");
+            string[] split1 = keys2.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("$"));
+            //string[] split1 = s.Split(Convert.ToChar("="));
+            //string[] persons = split1[1].Split(Convert.ToChar(Communicator.Separator));
             WP.Clear();
             WPC.Clear();
-            foreach (var x in persons)
+            foreach (var x in split1)
             {
                 if (string.IsNullOrEmpty(x))
                 {
                     continue;
                 }
                 childForm = new KorozottSzemelyTorolt();
-                var y = x.Split(Convert.ToChar("$"));
-                string[] persons2 = y[1].Split(Convert.ToChar("<"));
+                //var y = x.Split(Convert.ToChar("$"));
+                string keydata = Communicator.SendMessage((int)Communicator.Codes.GetArchivedPKey + "=" + x);
+                string[] persons2 = keydata.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("<"));
                 childForm.TextB1.Text = persons2[5];
                 childForm.TextB2.Text = persons2[4];
                 childForm.TextB3.Text = persons2[3];
@@ -93,7 +99,7 @@ namespace SeeWanted
                 childForm.TextB9.Text = persons2.Length == 9 ? persons2[8] : "Nincs";
                 int iss = this.Persons.Items.Add(persons2[0] + " (" + persons2[1] + " )");
                 WP.Add(iss + persons2[0] + " (" + persons2[1] + " )", childForm);
-                WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(y[0]));
+                WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(x));
             }
             PK = WP.Keys.Count;
         }
