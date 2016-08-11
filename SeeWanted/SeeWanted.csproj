@@ -74,6 +74,12 @@
   <ItemGroup>
     <Compile Include="Communicator.cs" />
     <Compile Include="Encrypter.cs" />
+    <Compile Include="Felhasznalok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Felhasznalok.Designer.cs">
+      <DependentUpon>Felhasznalok.cs</DependentUpon>
+    </Compile>
     <Compile Include="KorozesJarmuTorolt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,18 @@
     <Compile Include="Nyilvantartas.Designer.cs">
       <DependentUpon>Nyilvantartas.cs</DependentUpon>
     </Compile>
+    <Compile Include="NyilvantartasArch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NyilvantartasArch.Designer.cs">
+      <DependentUpon>NyilvantartasArch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NyilvantartasLapArch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NyilvantartasLapArch.Designer.cs">
+      <DependentUpon>NyilvantartasLapArch.cs</DependentUpon>
+    </Compile>
     <Compile Include="NyilvantartasLap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +172,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Felhasznalok.resx">
+      <DependentUpon>Felhasznalok.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KorozesJarmuTorolt.resx">
       <DependentUpon>KorozesJarmuTorolt.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nyilvantartas.resx">
       <DependentUpon>Nyilvantartas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NyilvantartasArch.resx">
+      <DependentUpon>NyilvantartasArch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NyilvantartasLapArch.resx">
+      <DependentUpon>NyilvantartasLapArch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NyilvantartasLap.resx">
       <DependentUpon>NyilvantartasLap.cs</DependentUpon>

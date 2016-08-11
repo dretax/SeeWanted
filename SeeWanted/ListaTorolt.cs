@@ -36,6 +36,8 @@ namespace SeeWanted
 
         internal void RunUpdate()
         {
+            var selectedv = Vehicles.SelectedItem;
+            var selectedp = Persons.SelectedItem;
             Vehicles.Items.Clear();
             Persons.Items.Clear();
             //string s2 = Communicator.SendMessage(((int)Communicator.Codes.GetAllArchivedV) + "=");
@@ -102,6 +104,10 @@ namespace SeeWanted
                 WPC.Add(iss + persons2[0] + " (" + persons2[1] + " )", int.Parse(x));
             }
             PK = WP.Keys.Count;
+            Vehicles.SelectedItems.Clear();
+            Persons.SelectedItems.Clear();
+            Vehicles.SelectedItem = selectedv;
+            Persons.SelectedItem = selectedp;
         }
 
         private void Form1_FormClosing(object sender, CancelEventArgs e)

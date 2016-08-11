@@ -38,10 +38,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Szemelyek = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -54,7 +56,7 @@
             this.groupBox1.Controls.Add(this.Szemelyek);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(575, 386);
+            this.groupBox1.Size = new System.Drawing.Size(579, 406);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Büntetett előéletű Személy(ek) Nyílvántartásai";
@@ -136,19 +138,47 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(293, 229);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 151);
+            this.groupBox2.Size = new System.Drawing.Size(280, 171);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nyílvántartások Kezelése";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(102, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Törlés oka(i)";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 75);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(264, 20);
+            this.textBox4.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 142);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(264, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Archivum";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 59);
+            this.button3.Location = new System.Drawing.Point(6, 113);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(264, 23);
             this.button3.TabIndex = 2;
@@ -171,23 +201,14 @@
             this.Szemelyek.FormattingEnabled = true;
             this.Szemelyek.Location = new System.Drawing.Point(6, 19);
             this.Szemelyek.Name = "Szemelyek";
-            this.Szemelyek.Size = new System.Drawing.Size(281, 355);
+            this.Szemelyek.Size = new System.Drawing.Size(281, 381);
             this.Szemelyek.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 88);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(264, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Archivum (Hamarosan)";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // Nyilvantartas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 400);
+            this.ClientSize = new System.Drawing.Size(603, 420);
             this.Controls.Add(this.groupBox1);
             this.Name = "Nyilvantartas";
             this.Text = "Büntetett előéletű Személy(ek) Nyílvántartásai";
@@ -195,6 +216,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +237,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

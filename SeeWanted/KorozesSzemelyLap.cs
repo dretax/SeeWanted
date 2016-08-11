@@ -61,7 +61,7 @@ namespace SeeWanted
             if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text) ||
                 !Program.CheckForChars(textBox3.Text) || !Program.CheckForChars(textBox4.Text))
             {
-                MessageBox.Show("Ne használj ~<= karaktereket a jelentésben!", "SeeWanted");
+                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
             var dnow = DateTime.Now;

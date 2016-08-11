@@ -40,6 +40,8 @@ namespace SeeWanted
 
         internal void RunUpdate()
         {
+            var selectedv = Vehicles.SelectedItem;
+            var selectedp = Persons.SelectedItem;
             Vehicles.Items.Clear();
             Persons.Items.Clear();
             string vehkeys = Communicator.SendMessage(((int)Communicator.Codes.GetAllVehKeys) + "=");
@@ -114,6 +116,10 @@ namespace SeeWanted
 
             }
             PK = WP.Keys.Count;
+            Vehicles.SelectedItems.Clear();
+            Persons.SelectedItems.Clear();
+            Vehicles.SelectedItem = selectedv;
+            Persons.SelectedItem = selectedp;
         }
 
         private void Form1_FormClosing(object sender, CancelEventArgs e)

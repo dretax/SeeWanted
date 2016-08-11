@@ -60,7 +60,10 @@ namespace SeeWanted
             GetAllArchivedVKeys,
             GetAllArchivedPKeys,
             GetArchivedVKey,
-            GetArchivedPKey
+            GetArchivedPKey,
+            GetBookedAPD,
+            GetBookedAPDData,
+            GiveLeader
         }
 
         internal static string SendMessage(string msg)

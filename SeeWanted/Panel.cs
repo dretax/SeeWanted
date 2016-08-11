@@ -18,6 +18,7 @@ namespace SeeWanted
         internal static KorozesJarmuLap childForm3;
         internal static Leader childForm4;
         internal static Nyilvantartas childForm5;
+        internal static Felhasznalok childForm6;
         internal static Panel PanelForm = null;
         internal static bool Notification = true;
         internal static Timer _timer;
@@ -31,7 +32,7 @@ namespace SeeWanted
             PanelForm = this;
             if (!Program.Leader)
             {
-                button4.Hide();
+                button4.Text = "Rendvédelmi Szervek Tagjai";
             }
             _timer = new Timer((double) (this.numericUpDown1.Value * 1000));
             _timer.Elapsed += new ElapsedEventHandler(CheckList);
@@ -108,6 +109,14 @@ namespace SeeWanted
                 {
                     childForm4 = new Leader();
                     childForm4.Show();
+                }
+            }
+            else
+            {
+                if (childForm6 == null)
+                {
+                    childForm6 = new Felhasznalok();
+                    childForm6.Show();
                 }
             }
         }

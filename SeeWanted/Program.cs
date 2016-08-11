@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -18,7 +15,7 @@ namespace SeeWanted
         internal static Bitmap nni = SeeWanted.Properties.Resources.nni;
         internal static Bitmap adm = SeeWanted.Properties.Resources.adm;
         internal static ImageList ImgList;
-        internal const string Version = "1.4";
+        internal const string Version = "1.5";
 
 
         [STAThread]
@@ -46,7 +43,7 @@ namespace SeeWanted
 
         internal static bool CheckForChars(string s)
         {
-            return !s.Contains("~") && !s.Contains("<") && !s.Contains("=");
+            return !s.Contains("~") && !s.Contains("<") && !s.Contains("=") && !s.Contains("$");
         }
     }
 }

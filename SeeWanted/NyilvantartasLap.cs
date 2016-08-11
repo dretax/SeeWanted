@@ -13,7 +13,6 @@ namespace SeeWanted
     {
         private string _name;
         private string _id;
-        private string _reason;
 
         internal NyilvantartasLap(string name, string id)
         {
@@ -51,6 +50,12 @@ namespace SeeWanted
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!Program.CheckForChars(textBox4.Text))
+            {
+                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                return;
+            }
+
             string s = Communicator.SendMessage((int) Communicator.Codes.AddBookedReason + "=" + _name + Communicator.Separator + DateTime.Now + ": " + textBox4.Text);
             if ((Communicator.Codes) int.Parse(s.Split(Convert.ToChar("="))[0]) == Communicator.Codes.FailedToAddBookedR)
             {

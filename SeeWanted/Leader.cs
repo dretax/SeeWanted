@@ -11,6 +11,7 @@ namespace SeeWanted
 {
     internal sealed partial class Leader : Form
     {
+        private bool GiveLeader = false;
 
         internal Leader()
         {
@@ -30,6 +31,8 @@ namespace SeeWanted
             if (faction != "adm")
             {
                 textBox3.Hide();
+                checkBox1.Hide();
+                label4.Hide();
             }
             listView1.SmallImageList = Program.ImgList;
             listView1.LargeImageList = Program.ImgList;
@@ -63,6 +66,12 @@ namespace SeeWanted
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
                 MessageBox.Show("Egyik mező sem lehet üres!", "SeeWanted");
+                return;
+            }
+
+            if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text))
+            {
+                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
 
@@ -105,6 +114,12 @@ namespace SeeWanted
             if (code == Communicator.Codes.OkRegistration)
             {
                 MessageBox.Show("Felhasználó regisztrálva!", "SeeWanted");
+            }
+            if (GiveLeader)
+            {
+                Communicator.SendMessage((int)Communicator.Codes.GiveLeader + "=" + Login.User + Communicator.Separator + faction);
+                checkBox1.Checked = false;
+                GiveLeader = false;
             }
             RunUpdate();
         }
@@ -191,6 +206,11 @@ namespace SeeWanted
                 }
                 RunUpdate();
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            GiveLeader = checkBox1.Checked;
         }
     }
 }
