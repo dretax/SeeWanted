@@ -49,6 +49,10 @@ namespace SeeWanted
 
         internal void RunUpdate()
         {
+            if (Panel.Updating)
+            {
+                return;
+            }
             metroProgressSpinner1.Value = 0;
             int allnums = GetKeyNum();
             int add = 100 / allnums;
@@ -63,8 +67,16 @@ namespace SeeWanted
             WCC.Clear();
             foreach (var yy in vkeys)
             {
-                metroProgressSpinner1.Value += add;
-                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                int calcv = metroProgressSpinner1.Value + add;
+                if (calcv <= 100)
+                {
+                    metroProgressSpinner1.Value += add;
+                }
+                int numcalc = Panel.PanelForm.MetroProgressBarS.Value + Panel.Add;
+                if (numcalc <= 100)
+                {
+                    Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                }
                 string veh = Communicator.SendMessage(((int)Communicator.Codes.GetVehicleData) + "=" + yy);
                 string[] veh2 = veh.Split(Convert.ToChar("="));
                 if (veh2[1].Contains("null"))
@@ -105,8 +117,16 @@ namespace SeeWanted
 
             foreach (var yy in pkeys)
             {
-                metroProgressSpinner1.Value += add;
-                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                int calcv = metroProgressSpinner1.Value + add;
+                if (calcv <= 100)
+                {
+                    metroProgressSpinner1.Value += add;
+                }
+                int numcalc = Panel.PanelForm.MetroProgressBarS.Value + Panel.Add;
+                if (numcalc <= 100)
+                {
+                    Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                }
                 string s = Communicator.SendMessage(((int) Communicator.Codes.GetPersonData) + "=" + yy);
                 string[] split1 = s.Split(Convert.ToChar("="));
                 try

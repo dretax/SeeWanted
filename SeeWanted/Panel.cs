@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Timers;
+using MetroFramework;
 using MetroFramework.Controls;
 using Timer = System.Timers.Timer;
 
@@ -19,7 +20,7 @@ namespace SeeWanted
         private static Timer _timer2;
         internal static int Each = 0;
         internal static int Add = 0;
-        internal bool Updating = false;
+        internal static bool Updating = false;
         private Login _inst;
 
         internal Panel(Login instance)
@@ -109,6 +110,11 @@ namespace SeeWanted
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (Updating)
+            {
+                MetroMessageBox.Show(this, "Éppen frissül a lista, próbáld meg eu után!", "Várj egy picit!");
+                return;
+            }
             if (childForm2 == null)
             {
                 childForm2 = new Lista();
@@ -161,6 +167,11 @@ namespace SeeWanted
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (Updating)
+            {
+                MetroMessageBox.Show(this, "Éppen frissül a lista, próbáld meg eu után!", "Várj egy picit!");
+                return;
+            }
             if (childForm5 == null)
             {
                 childForm5 = new Nyilvantartas();

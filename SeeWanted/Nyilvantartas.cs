@@ -19,6 +19,7 @@ namespace SeeWanted
         {
             Closing += Form1_FormClosing;
             InitializeComponent();
+            metroProgressSpinner1.Maximum = 100;
             button2.ForeColor = Color.Red;
             button4.ForeColor = Color.Green;
             NyilvantartasInst = this;
@@ -41,6 +42,10 @@ namespace SeeWanted
 
         internal void RunUpdate()
         {
+            if (Panel.Updating)
+            {
+                return;
+            }
             metroProgressSpinner1.Value = 0;
             int allnums = GetNum();
             int add = 100 / allnums;
@@ -64,8 +69,16 @@ namespace SeeWanted
                 {
                     continue;
                 }
-                metroProgressSpinner1.Value += add;
-                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                int calcv = metroProgressSpinner1.Value + add;
+                if (calcv <= 100)
+                {
+                    metroProgressSpinner1.Value += add;
+                }
+                int numcalc = Panel.PanelForm.MetroProgressBarS.Value + Panel.Add;
+                if (numcalc <= 100)
+                {
+                    Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
+                }
                 var nsplit = x.Split(Convert.ToChar("$"));
                 string userdata = Communicator.SendMessage((int)Communicator.Codes.GetBookedPD + "=" +
                 nsplit[0].ToLower());
