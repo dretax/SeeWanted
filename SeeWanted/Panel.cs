@@ -63,8 +63,11 @@ namespace SeeWanted
             {
                 i += Lista.ListaInstance.GetKeyNum();
             }
-            Each = i;
-            Add = 100 / Each;
+            if (i > 0)
+            {
+                Each = i;
+                Add = 100/Each;
+            }
             if (Notification && Lista.ListaInstance != null)
             {
                 int Voldnum = Lista.VK;
@@ -112,7 +115,7 @@ namespace SeeWanted
         {
             if (Updating)
             {
-                MetroMessageBox.Show(this, "Éppen frissül a lista, próbáld meg eu után!", "Várj egy picit!");
+                MetroMessageBox.Show(this, "Éppen frissül a lista, próbáld meg ez után!", "Várj egy picit!");
                 return;
             }
             if (childForm2 == null)

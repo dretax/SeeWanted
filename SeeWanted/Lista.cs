@@ -251,7 +251,7 @@ namespace SeeWanted
                 string key = Vehicles.GetItemText(Vehicles.SelectedItem);
                 string key2 = sindex + key;
                 var num = WCC[key2];
-                DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MetroMessageBox.Show(this, key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User + Communicator.Separator + textBox2.Text);
