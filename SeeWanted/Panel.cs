@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Timers;
-using System.Windows.Forms;
+using MetroFramework.Controls;
 using Timer = System.Timers.Timer;
 
 namespace SeeWanted
@@ -22,6 +16,10 @@ namespace SeeWanted
         internal static Panel PanelForm = null;
         internal static bool Notification = true;
         internal static Timer _timer;
+        private static Timer _timer2;
+        internal static int Each = 0;
+        internal static int Add = 0;
+        internal bool Updating = false;
         private Login _inst;
 
         internal Panel(Login instance)
@@ -30,6 +28,7 @@ namespace SeeWanted
             Closing += Form1_FormClosing;
             InitializeComponent();
             PanelForm = this;
+            metroProgressSpinner1.Maximum = 100;
             if (!Program.Leader)
             {
                 button4.Text = "Rendvédelmi Szervek Tagjai";
@@ -39,10 +38,32 @@ namespace SeeWanted
             _timer.Start();
         }
 
+        internal MetroProgressSpinner MetroProgressBarS
+        {
+            get { return metroProgressSpinner1; }
+        }
+
         private void CheckList(object sender, ElapsedEventArgs e)
         {
+            if (Updating)
+            {
+                return;
+            }
+            Updating = true;
             _timer.Stop();
             _timer.Dispose();
+            int i = 0;
+            metroProgressSpinner1.Value = 0;
+            if (Nyilvantartas.NyilvantartasInst != null)
+            {
+                i += Nyilvantartas.NyilvantartasInst.GetNum();
+            }
+            if (Notification && Lista.ListaInstance != null)
+            {
+                i += Lista.ListaInstance.GetKeyNum();
+            }
+            Each = i;
+            Add = 100 / Each;
             if (Notification && Lista.ListaInstance != null)
             {
                 int Voldnum = Lista.VK;
@@ -61,9 +82,21 @@ namespace SeeWanted
             {
                 Nyilvantartas.NyilvantartasInst.RunUpdate();
             }
+            MetroProgressBarS.Value = 100;
+            _timer2 = new Timer(1500);
+            _timer2.Elapsed += new ElapsedEventHandler(CheckList2);
+            _timer2.Start();
             _timer = new Timer((double)(this.numericUpDown1.Value * 1000));
             _timer.Elapsed += new ElapsedEventHandler(CheckList);
             _timer.Start();
+            Updating = false;
+        }
+
+        private void CheckList2(object sender, ElapsedEventArgs e)
+        {
+            _timer2.Stop();
+            _timer2.Dispose();
+            MetroProgressBarS.Value = 0;
         }
 
         private void Form1_FormClosing(object sender, EventArgs e)

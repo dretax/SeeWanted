@@ -15,7 +15,7 @@ namespace SeeWanted
         internal static Bitmap nni = SeeWanted.Properties.Resources.nni;
         internal static Bitmap adm = SeeWanted.Properties.Resources.adm;
         internal static ImageList ImgList;
-        internal const string Version = "1.6";
+        internal const string Version = "1.7";
 
 
         [STAThread]
@@ -33,7 +33,7 @@ namespace SeeWanted
 
         internal static string SHA256Code(string value)
         {
-            using (SHA256 hash = SHA256Managed.Create())
+            using (SHA256 hash = SHA256.Create())
             {
                 return string.Join("", hash
                   .ComputeHash(Encoding.UTF8.GetBytes(value))

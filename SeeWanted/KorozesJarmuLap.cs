@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using MetroFramework;
-using MetroFramework.Components;
 
 namespace SeeWanted
 {
@@ -31,25 +24,25 @@ namespace SeeWanted
 
             if (getuserdataspl[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 return;
             }
 
             if (textBox3.Text == "SEE-00000(Példa)")
             {
-                MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
+                MetroMessageBox.Show(this, "Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
                 return;
             }
             if (textBox4.Text == "REM,RUM(Példa)")
             {
-                MessageBox.Show("Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
+                MetroMessageBox.Show(this, "Minden mezőt kötelező kitölteni! Ha nem ismert, írj oda ismeretlent!", "SeeWanted");
                 return;
             }
             if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text) ||
                 !Program.CheckForChars(textBox3.Text) || !Program.CheckForChars(textBox4.Text) || 
                 !Program.CheckForChars(textBox5.Text))
             {
-                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
             var dnow = DateTime.Now;
@@ -65,7 +58,7 @@ namespace SeeWanted
             var num = int.Parse(s.Split(Convert.ToChar("="))[0]);
             if ((Communicator.Codes)num == Communicator.Codes.OkRVehicle)
             {
-                MessageBox.Show("Sikeresen kiadtál egy körözést!", "SeeWanted");
+                MetroMessageBox.Show(this, "Sikeresen kiadtál egy körözést!", "SeeWanted");
             }
             this.Close();
         }

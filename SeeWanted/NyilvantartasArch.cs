@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -36,7 +31,7 @@ namespace SeeWanted
 
             if (getuserdataspl[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 Panel.PanelForm.Close();
                 return;
             }
@@ -65,7 +60,7 @@ namespace SeeWanted
 
             if (getuserdataspl[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 Panel.PanelForm.Close();
                 return;
             }

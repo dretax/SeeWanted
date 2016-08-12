@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -54,27 +52,17 @@ namespace SeeWanted
             Panel.childForm4 = null;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
-                MessageBox.Show("Egyik mező sem lehet üres!", "SeeWanted");
+                MetroMessageBox.Show(this, "Egyik mező sem lehet üres!", "SeeWanted");
                 return;
             }
 
             if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text))
             {
-                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
 
@@ -83,7 +71,7 @@ namespace SeeWanted
 
             if (factionsplit[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 return;
             }
 
@@ -93,12 +81,12 @@ namespace SeeWanted
             {
                 if (faction != "adm" && textBox3.Text == "adm")
                 {
-                    MessageBox.Show("Adminisztrátort csak Adminisztrátor regisztrálhat!", "SeeWanted");
+                    MetroMessageBox.Show(this, "Adminisztrátort csak Adminisztrátor regisztrálhat!", "SeeWanted");
                     return;
                 }
                 if (textBox3.Text != "nav" && textBox3.Text != "nni" && textBox3.Text != "pd" && textBox3.Text != "adm")
                 {
-                    MessageBox.Show("Hibás név! nav/nni/pd/adm", "SeeWanted");
+                    MetroMessageBox.Show(this, "Hibás név! nav/nni/pd/adm", "SeeWanted");
                     return;
                 }
                 faction = textBox3.Text.ToLower();
@@ -111,12 +99,12 @@ namespace SeeWanted
             Communicator.Codes code = (Communicator.Codes) int.Parse(split[0]);
             if (code == Communicator.Codes.InvalidRegistration)
             {
-                MessageBox.Show("Felhasználó már létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "Felhasználó már létezik!", "SeeWanted");
                 return;
             }
             if (code == Communicator.Codes.OkRegistration)
             {
-                MessageBox.Show("Felhasználó regisztrálva!", "SeeWanted");
+                MetroMessageBox.Show(this, "Felhasználó regisztrálva!", "SeeWanted");
             }
             if (GiveLeader)
             {
@@ -136,7 +124,7 @@ namespace SeeWanted
 
                 if (getuserdataspl[1].Contains("null"))
                 {
-                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                     return;
                 }
 
@@ -145,7 +133,7 @@ namespace SeeWanted
                 for (int i = 0; i < listView1.SelectedItems.Count ; i++)
                 {
                     var x = listView1.SelectedItems[i];
-                    DialogResult dialogResult = MessageBox.Show("Választott felhasználó: " + x.Text, "Biztosan törölni akarod?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MetroMessageBox.Show(this, "Választott felhasználó: " + x.Text, "Biztosan törölni akarod?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.No)
                     {
                         continue;
@@ -199,14 +187,10 @@ namespace SeeWanted
                 {
                     Communicator.SendMessage((int) Communicator.Codes.DeleteUser + "=" + x + Communicator.Separator + Login.Faction);
                 }
-                if (indexes.Count > 0)
-                {
-                    MessageBox.Show("A kiválasztott felhasználók melyekre jogusultsággal rendelkeztél törölve lettek", "SeeWanted");
-                }
-                else
-                {
-                    MessageBox.Show("Törlés megszakítva, vagy nem rendelkeztél elég jogusultsággal a törléshez.", "SeeWanted");
-                }
+                MetroMessageBox.Show(this,
+                    indexes.Count > 0
+                        ? "A kiválasztott felhasználók melyekre jogusultsággal rendelkeztél törölve lettek"
+                        : "Törlés megszakítva, vagy nem rendelkeztél elég jogusultsággal a törléshez.", "SeeWanted");
                 RunUpdate();
             }
         }

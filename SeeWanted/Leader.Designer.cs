@@ -33,7 +33,9 @@
             this.label1 = new MetroFramework.Controls.MetroLabel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new MetroFramework.Controls.MetroButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new MetroFramework.Controls.MetroButton();
             this.checkBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.textBox3 = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new MetroFramework.Controls.MetroLabel();
@@ -41,8 +43,6 @@
             this.label3 = new MetroFramework.Controls.MetroLabel();
             this.textBox1 = new MetroFramework.Controls.MetroTextBox();
             this.label2 = new MetroFramework.Controls.MetroLabel();
-            this.button1 = new MetroFramework.Controls.MetroButton();
-            this.button2 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,7 +87,16 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kiválasztott Felhasználó Törlése";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(67, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Felhasználó Törlése";
+            this.button2.UseSelectable = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
@@ -105,6 +114,16 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Felhasználó Regisztrálása";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(67, 182);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Regisztrálás";
+            this.button1.UseSelectable = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox1
             // 
@@ -233,26 +252,6 @@
             this.label2.Size = new System.Drawing.Size(96, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Felhasználónév";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(67, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Regisztrálás";
-            this.button1.UseSelectable = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(67, 73);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Felhasználó Törlése";
-            this.button2.UseSelectable = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Leader
             // 

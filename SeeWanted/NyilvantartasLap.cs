@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -52,18 +47,18 @@ namespace SeeWanted
         {
             if (!Program.CheckForChars(textBox4.Text))
             {
-                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
 
             string s = Communicator.SendMessage((int) Communicator.Codes.AddBookedReason + "=" + _name + Communicator.Separator + DateTime.Now + ": " + textBox4.Text);
             if ((Communicator.Codes) int.Parse(s.Split(Convert.ToChar("="))[0]) == Communicator.Codes.FailedToAddBookedR)
             {
-                MessageBox.Show("Sikertelen! Valószínűleg az adott nevet törölték!");
+                MetroMessageBox.Show(this, "Sikertelen! Valószínűleg az adott nevet törölték!");
                 return;
             }
             RunUpdate();
-            MessageBox.Show("Sikeresen hozzáadtál egy újabb bűncselekményt!");
+            MetroMessageBox.Show(this, "Sikeresen hozzáadtál egy újabb bűncselekményt!");
             textBox4.Clear();
         }
     }

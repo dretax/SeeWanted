@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace SeeWanted
 {
     internal partial class KorozesJarmu : MetroFramework.Forms.MetroForm
     {
-        public KorozesJarmu()
+        internal KorozesJarmu()
         {
             Closing += Form1_FormClosing;
             InitializeComponent();
@@ -24,7 +18,7 @@ namespace SeeWanted
             this.Hide();
         }
 
-        public TextBox TextB1
+        internal MetroTextBox TextB1
         {
             get
             {
@@ -32,7 +26,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB2
+        internal MetroTextBox TextB2
         {
             get
             {
@@ -40,7 +34,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB3
+        internal MetroTextBox TextB3
         {
             get
             {
@@ -48,7 +42,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB4
+        internal MetroTextBox TextB4
         {
             get
             {
@@ -56,7 +50,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB5
+        internal MetroTextBox TextB5
         {
             get
             {
@@ -64,7 +58,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB6
+        internal MetroTextBox TextB6
         {
             get
             {
@@ -72,7 +66,7 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB7
+        internal MetroTextBox TextB7
         {
             get
             {
@@ -80,42 +74,12 @@ namespace SeeWanted
             }
         }
 
-        public TextBox TextB8
+        internal MetroTextBox TextB8
         {
             get
             {
                 return textBox8;
             }
-        }
-
-        private void KorozesJarmu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

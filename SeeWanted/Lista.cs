@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -31,6 +29,7 @@ namespace SeeWanted
             WPC = new Dictionary<string, int>();
             WCC = new Dictionary<string, int>();
             InitializeComponent();
+            metroProgressSpinner1.Maximum = 100;
             button1.ForeColor = Color.Red;
             button2.ForeColor = Color.Red;
             button5.ForeColor = Color.Green;
@@ -38,8 +37,21 @@ namespace SeeWanted
             RunUpdate();
         }
 
+        internal int GetKeyNum()
+        {
+            string vehkeys = Communicator.SendMessage(((int)Communicator.Codes.GetAllVehKeys) + "=");
+            string[] vkeys = vehkeys.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("$"));
+            string perkeys = Communicator.SendMessage(((int)Communicator.Codes.GetAllPersonKeys) + "=");
+            string[] pkeys = perkeys.Split(Convert.ToChar("="))[1].Split(Convert.ToChar("$"));
+            return vkeys.Length + pkeys.Length;
+        }
+
+
         internal void RunUpdate()
         {
+            metroProgressSpinner1.Value = 0;
+            int allnums = GetKeyNum();
+            int add = 100 / allnums;
             var selectedv = Vehicles.SelectedItem;
             var selectedp = Persons.SelectedItem;
             Vehicles.Items.Clear();
@@ -51,7 +63,8 @@ namespace SeeWanted
             WCC.Clear();
             foreach (var yy in vkeys)
             {
-
+                metroProgressSpinner1.Value += add;
+                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
                 string veh = Communicator.SendMessage(((int)Communicator.Codes.GetVehicleData) + "=" + yy);
                 string[] veh2 = veh.Split(Convert.ToChar("="));
                 if (veh2[1].Contains("null"))
@@ -92,6 +105,8 @@ namespace SeeWanted
 
             foreach (var yy in pkeys)
             {
+                metroProgressSpinner1.Value += add;
+                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
                 string s = Communicator.SendMessage(((int) Communicator.Codes.GetPersonData) + "=" + yy);
                 string[] split1 = s.Split(Convert.ToChar("="));
                 try
@@ -115,6 +130,7 @@ namespace SeeWanted
                 }
 
             }
+            metroProgressSpinner1.Value = 100;
             PK = WP.Keys.Count;
             Vehicles.SelectedItems.Clear();
             Persons.SelectedItems.Clear();
@@ -148,7 +164,7 @@ namespace SeeWanted
 
                 if (getuserdataspl[1].Contains("null"))
                 {
-                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                     Panel.PanelForm.Close();
                     return;
                 }
@@ -158,7 +174,8 @@ namespace SeeWanted
                 string key = Persons.GetItemText(Persons.SelectedItem);
                 string key2 = sindex + key;
                 var num = WPC[key2];
-                DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                //DialogResult dialogResult = MessageBox.Show(key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MetroMessageBox.Show(this, key, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string msg =
@@ -167,7 +184,7 @@ namespace SeeWanted
                     if ((Communicator.Codes) int.Parse(msg.Split(Convert.ToChar("="))[0]) ==
                         Communicator.Codes.DeleteFail)
                     {
-                        MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
+                        MetroMessageBox.Show(this, "Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
                         return;
                     }
                     textBox1.Text = "";
@@ -188,12 +205,12 @@ namespace SeeWanted
         {
             if (string.IsNullOrEmpty(textBox2.Text) || textBox2.Text.Length < 3)
             {
-                MessageBox.Show("Add meg a törlés okát!", "SeeWanted");
+                MetroMessageBox.Show(this, "Add meg a törlés okát!", "SeeWanted");
                 return;
             }
             if (IsUpdating)
             {
-                MessageBox.Show("Lista frissítés futott, próbáld meg ez után.", "SeeWanted");
+                MetroMessageBox.Show(this, "Lista frissítés futott, próbáld meg ez után.", "SeeWanted");
                 return;
             }
             var selected = Vehicles.SelectedIndex;
@@ -204,7 +221,7 @@ namespace SeeWanted
 
                 if (getuserdataspl[1].Contains("null"))
                 {
-                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                     Panel.PanelForm.Close();
                     return;
                 }
@@ -220,7 +237,7 @@ namespace SeeWanted
                     string msg = Communicator.SendMessage((int)Communicator.Codes.DeleteVehicle + "=" + num + Communicator.Separator + Login.User + Communicator.Separator + textBox2.Text);
                     if ((Communicator.Codes)int.Parse(msg.Split(Convert.ToChar("="))[0]) == Communicator.Codes.DeleteFail)
                     {
-                        MessageBox.Show("Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
+                        MetroMessageBox.Show(this, "Sikertelen törlés! (Lehet már előtted törölték)", "SeeWanted");
                         return;
                     }
                     textBox2.Text = "";
@@ -255,7 +272,7 @@ namespace SeeWanted
             }
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             if (childForm3 == null)
             {

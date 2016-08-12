@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace SeeWanted
 {
@@ -23,7 +24,7 @@ namespace SeeWanted
             this.Hide();
         }
 
-        internal TextBox TextB1
+        internal MetroTextBox TextB1
         {
             get
             {
@@ -31,7 +32,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB2
+        internal MetroTextBox TextB2
         {
             get
             {
@@ -39,7 +40,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB3
+        internal MetroTextBox TextB3
         {
             get
             {
@@ -47,7 +48,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB4
+        internal MetroTextBox TextB4
         {
             get
             {
@@ -55,7 +56,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB5
+        internal MetroTextBox TextB5
         {
             get
             {
@@ -63,7 +64,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB6
+        internal MetroTextBox TextB6
         {
             get
             {
@@ -71,7 +72,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB7
+        internal MetroTextBox TextB7
         {
             get
             {
@@ -79,7 +80,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB8
+        internal MetroTextBox TextB8
         {
             get
             {
@@ -87,7 +88,7 @@ namespace SeeWanted
             }
         }
 
-        internal TextBox TextB9
+        internal MetroTextBox TextB9
         {
             get
             {

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NyilvantartasArch));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1 = new MetroFramework.Controls.MetroButton();
             this.Szemelyek = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,12 +48,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(7, 234);
+            this.button1.Location = new System.Drawing.Point(7, 236);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(342, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Nyílvántartás Megtekintése";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseSelectable = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Szemelyek
@@ -69,6 +70,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 346);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NyilvantartasArch";
             this.Text = "Archivált Nyílvántartások";
             this.groupBox1.ResumeLayout(false);
@@ -79,7 +81,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox Szemelyek;
+        private MetroFramework.Controls.MetroButton button1;
     }
 }

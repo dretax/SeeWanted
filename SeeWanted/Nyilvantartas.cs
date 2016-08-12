@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -31,8 +30,20 @@ namespace SeeWanted
             Panel.childForm5 = null;
         }
 
+        internal int GetNum()
+        {
+            string list = Communicator.SendMessage((int)Communicator.Codes.GetBookedPersons + "=" + Login.User);
+            string[] split = list.Split(Convert.ToChar("="));
+            var ndata = split[1].Split(Convert.ToChar("<"));
+            int i = ndata.Count(x => !string.IsNullOrEmpty(x));
+            return i;
+        }
+
         internal void RunUpdate()
         {
+            metroProgressSpinner1.Value = 0;
+            int allnums = GetNum();
+            int add = 100 / allnums;
             NameData.Clear();
             Szemelyek.Items.Clear();
             var getuserdata = Communicator.SendMessage((int)Communicator.Codes.GetUserData + "=" + Login.User);
@@ -53,6 +64,8 @@ namespace SeeWanted
                 {
                     continue;
                 }
+                metroProgressSpinner1.Value += add;
+                Panel.PanelForm.MetroProgressBarS.Value += Panel.Add;
                 var nsplit = x.Split(Convert.ToChar("$"));
                 string userdata = Communicator.SendMessage((int)Communicator.Codes.GetBookedPD + "=" +
                 nsplit[0].ToLower());
@@ -60,19 +73,20 @@ namespace SeeWanted
                 Szemelyek.Items.Add(nsplit[0] + " (Azonosító: " + userdata + ")");
                 NameData[(nsplit[0] + " (Azonosító: " + userdata + ")").ToLower()] = nsplit[0];
             }
+            metroProgressSpinner1.Value = 100;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (!Program.CheckForChars(textBox4.Text))
             {
-                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
 
             if (string.IsNullOrEmpty(textBox4.Text) || textBox4.Text.Length < 3)
             {
-                MessageBox.Show("Add meg a törlés okát!", "SeeWanted");
+                MetroMessageBox.Show(this, "Add meg a törlés okát!", "SeeWanted");
                 return;
             }
             var selected = Szemelyek.SelectedIndex;
@@ -84,12 +98,12 @@ namespace SeeWanted
 
                 if (getuserdataspl[1].Contains("null"))
                 {
-                    MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                    MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                     Panel.PanelForm.Close();
                     return;
                 }
                 var oname = Szemelyek.GetItemText(selected2);
-                DialogResult dialogResult = MessageBox.Show(oname, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MetroMessageBox.Show(this, oname, "Biztosan törölni akarod a körözést?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     var name = NameData[oname.ToLower()];
@@ -99,7 +113,7 @@ namespace SeeWanted
                     string[] split = deluser.Split(Convert.ToChar("="));
                     if ((Communicator.Codes) int.Parse(split[0]) == Communicator.Codes.DeleteFail)
                     {
-                        MessageBox.Show("Sikertelen törlés!", "SeeWanted");
+                        MetroMessageBox.Show(this, "Sikertelen törlés!", "SeeWanted");
                         return;
                     }
                     RunUpdate();
@@ -112,7 +126,7 @@ namespace SeeWanted
             if (!Program.CheckForChars(textBox1.Text) || !Program.CheckForChars(textBox2.Text) ||
                 !Program.CheckForChars(textBox3.Text))
             {
-                MessageBox.Show("Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ne használj ~<=$ karaktereket a jelentésben!", "SeeWanted");
                 return;
             }
 
@@ -121,7 +135,7 @@ namespace SeeWanted
 
             if (getuserdataspl[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 Panel.PanelForm.Close();
                 return;
             }
@@ -129,13 +143,13 @@ namespace SeeWanted
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text)
                 || string.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Egyik mező sem lehet üres!", "SeeWanted");
+                MetroMessageBox.Show(this, "Egyik mező sem lehet üres!", "SeeWanted");
                 return;
             }
 
             if (!textBox1.Text.Contains("_") || textBox1.Text.Contains(" "))
             {
-                MessageBox.Show("A névben nem lehet szóköz, és alsóvonallal kell elválasztani!", "SeeWanted");
+                MetroMessageBox.Show(this, "A névben nem lehet szóköz, és alsóvonallal kell elválasztani!", "SeeWanted");
                 return;
             }
 
@@ -144,11 +158,11 @@ namespace SeeWanted
             string[] split = adduser.Split(Convert.ToChar("="));
             if ((Communicator.Codes) int.Parse(split[0]) == Communicator.Codes.BookedExists)
             {
-                MessageBox.Show("Ez a név már létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "Ez a név már létezik!", "SeeWanted");
                 return;
             }
             RunUpdate();
-            MessageBox.Show("Hozzáadva!", "SeeWanted");
+            MetroMessageBox.Show(this, "Hozzáadva!", "SeeWanted");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -158,7 +172,7 @@ namespace SeeWanted
 
             if (getuserdataspl[1].Contains("null"))
             {
-                MessageBox.Show("A felhasználód nem létezik!", "SeeWanted");
+                MetroMessageBox.Show(this, "A felhasználód nem létezik!", "SeeWanted");
                 Panel.PanelForm.Close();
                 return;
             }

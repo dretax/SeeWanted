@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaTorolt));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button3 = new MetroFramework.Controls.MetroButton();
             this.Persons = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button4 = new MetroFramework.Controls.MetroButton();
             this.Vehicles = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -54,10 +54,10 @@
             // 
             this.button3.Location = new System.Drawing.Point(84, 423);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(209, 23);
-            this.button3.TabIndex = 2;
+            this.button3.Size = new System.Drawing.Size(210, 23);
+            this.button3.TabIndex = 1;
             this.button3.Text = "Részletek Megtekintése";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseSelectable = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Persons
@@ -81,12 +81,12 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(74, 423);
+            this.button4.Location = new System.Drawing.Point(82, 423);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(210, 23);
-            this.button4.TabIndex = 2;
+            this.button4.TabIndex = 1;
             this.button4.Text = "Részletek Megtekintése";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseSelectable = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Vehicles
@@ -119,7 +119,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox Persons;
         private System.Windows.Forms.ListBox Vehicles;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private MetroFramework.Controls.MetroButton button3;
+        private MetroFramework.Controls.MetroButton button4;
     }
 }

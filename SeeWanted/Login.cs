@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Security;
-using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
 
 namespace SeeWanted
 {
@@ -29,7 +20,7 @@ namespace SeeWanted
         {
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
-                MessageBox.Show("Egyik mező sem lehet üres!", "SeeWanted");
+                MetroMessageBox.Show(this, "Egyik mező sem lehet üres!", "SeeWanted");
                 return;
             }
             string Hash = Program.SHA256Code(textBox2.Text);
@@ -61,8 +52,8 @@ namespace SeeWanted
                 string version = Communicator.SendMessage((int)Communicator.Codes.Version + "=Requesting");
                 if (version.Split(Convert.ToChar("="))[1] != Program.Version)
                 {
-                    MessageBox.Show("Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
-                    System.Diagnostics.Process.Start("https://www.dropbox.com/s/8qbw54glkqx31f7/SeeWanted.exe?dl=0");
+                    MetroMessageBox.Show(this, "Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
+                    System.Diagnostics.Process.Start("http://forum2.see-game.com/index.php?topic=153526.0");
                     Close();
                 }
             }
@@ -82,14 +73,14 @@ namespace SeeWanted
                 string version = Communicator.SendMessage((int)Communicator.Codes.Version + "=Requesting");
                 if (version.Split(Convert.ToChar("="))[1] != Program.Version)
                 {
-                    MessageBox.Show("Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
-                    System.Diagnostics.Process.Start("https://www.dropbox.com/s/8qbw54glkqx31f7/SeeWanted.exe?dl=0");
+                    MetroMessageBox.Show(this, "Régebbi verziót használsz mint a szerver! A gomb lenyomása után letöltheted.", "SeeWanted");
+                    System.Diagnostics.Process.Start("http://forum2.see-game.com/index.php?topic=153526.0");
                     Close();
                 }
             }
             else
             {
-                MessageBox.Show("Hibás Adatok!", "SeeWanted");
+                MetroMessageBox.Show(this, "Hibás Adatok!", "SeeWanted");
             }
         }
     }
