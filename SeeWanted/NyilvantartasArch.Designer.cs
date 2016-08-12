@@ -38,7 +38,7 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Szemelyek);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(23, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(355, 278);
             this.groupBox1.TabIndex = 0;
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 303);
+            this.ClientSize = new System.Drawing.Size(389, 346);
             this.Controls.Add(this.groupBox1);
             this.Name = "NyilvantartasArch";
             this.Text = "Archivált Nyílvántartások";

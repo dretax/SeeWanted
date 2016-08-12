@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal sealed partial class Leader : Form
+    internal sealed partial class Leader : MetroFramework.Forms.MetroForm
     {
         private bool GiveLeader = false;
 
@@ -31,8 +31,11 @@ namespace SeeWanted
             if (faction != "adm")
             {
                 textBox3.Hide();
-                checkBox1.Hide();
                 label4.Hide();
+            }
+            if (!Program.Leader)
+            {
+                checkBox1.Hide();
             }
             listView1.SmallImageList = Program.ImgList;
             listView1.LargeImageList = Program.ImgList;

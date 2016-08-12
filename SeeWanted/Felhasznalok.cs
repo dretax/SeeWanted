@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class Felhasznalok : Form
+    internal partial class Felhasznalok : MetroFramework.Forms.MetroForm
     {
         internal Felhasznalok()
         {

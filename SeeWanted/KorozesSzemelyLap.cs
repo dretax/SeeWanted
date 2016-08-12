@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal sealed partial class KorozesSzemelyLap : Form
+    internal sealed partial class KorozesSzemelyLap : MetroFramework.Forms.MetroForm
     {
         internal KorozesSzemelyLap()
         {

@@ -6,10 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
+using MetroFramework.Components;
 
 namespace SeeWanted
 {
-    internal sealed partial class KorozesJarmuLap : Form
+    internal sealed partial class KorozesJarmuLap : MetroFramework.Forms.MetroForm
     {
         internal KorozesJarmuLap()
         {

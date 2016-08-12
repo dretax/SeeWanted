@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class Nyilvantartas : Form
+    internal partial class Nyilvantartas : MetroFramework.Forms.MetroForm
     {
         internal static Nyilvantartas NyilvantartasInst;
         internal static NyilvantartasLap childForm;

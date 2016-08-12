@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class KorozottSzemely : Form
+    internal partial class KorozottSzemely : MetroFramework.Forms.MetroForm
     {
         internal KorozottSzemely()
         {

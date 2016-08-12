@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal sealed partial class ListaTorolt : Form
+    internal sealed partial class ListaTorolt : MetroFramework.Forms.MetroForm
     {
         internal static Dictionary<string, KorozottSzemelyTorolt> WP;
         internal static Dictionary<string, KorozesJarmuTorolt> WC;

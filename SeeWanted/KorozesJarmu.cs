@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class KorozesJarmu : Form
+    internal partial class KorozesJarmu : MetroFramework.Forms.MetroForm
     {
         public KorozesJarmu()
         {

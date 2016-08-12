@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class NyilvantartasLapArch : Form
+    internal partial class NyilvantartasLapArch : MetroFramework.Forms.MetroForm
     {
         private string _name;
         private string _id;

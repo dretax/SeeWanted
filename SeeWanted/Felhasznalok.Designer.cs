@@ -36,7 +36,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(23, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 275);
             this.groupBox1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 300);
+            this.ClientSize = new System.Drawing.Size(357, 340);
             this.Controls.Add(this.groupBox1);
             this.Name = "Felhasznalok";
             this.Text = "Rendvédelmi Szervek Tagjai";

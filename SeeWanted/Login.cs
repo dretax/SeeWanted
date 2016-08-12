@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal sealed partial class Login : Form
+    internal sealed partial class Login : MetroFramework.Forms.MetroForm
     {
         private Panel childForm;
         internal static string User = "";

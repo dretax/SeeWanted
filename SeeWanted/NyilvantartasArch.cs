@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SeeWanted
 {
-    internal partial class NyilvantartasArch : Form
+    internal partial class NyilvantartasArch : MetroFramework.Forms.MetroForm
     {
         internal static NyilvantartasLapArch childForm;
         internal Dictionary<string, string> NameData = new Dictionary<string, string>();

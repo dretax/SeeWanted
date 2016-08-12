@@ -11,7 +11,7 @@ using Timer = System.Timers.Timer;
 
 namespace SeeWanted
 {
-    internal sealed partial class Panel : Form
+    internal sealed partial class Panel : MetroFramework.Forms.MetroForm
     {
         internal static KorozesSzemelyLap childForm;
         internal static Lista childForm2;

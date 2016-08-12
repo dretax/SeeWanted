@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.Szemelyek);
-            this.groupBox1.Location = new System.Drawing.Point(12, 2);
+            this.groupBox1.Location = new System.Drawing.Point(14, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(579, 406);
             this.groupBox1.TabIndex = 0;
@@ -208,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 420);
+            this.ClientSize = new System.Drawing.Size(606, 475);
             this.Controls.Add(this.groupBox1);
             this.Name = "Nyilvantartas";
             this.Text = "Büntetett előéletű Személy(ek) Nyílvántartásai";
