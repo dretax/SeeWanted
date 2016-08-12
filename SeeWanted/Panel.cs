@@ -23,6 +23,9 @@ namespace SeeWanted
         internal static bool Updating = false;
         private Login _inst;
 
+        internal static int WantedRecords = 0;
+        internal static int BookedRecords = 0;
+
         internal Panel(Login instance)
         {
             _inst = instance;
@@ -50,6 +53,7 @@ namespace SeeWanted
             {
                 return;
             }
+            bool SUpdate = false;
             Updating = true;
             _timer.Stop();
             _timer.Dispose();
@@ -57,18 +61,30 @@ namespace SeeWanted
             metroProgressSpinner1.Value = 0;
             if (Nyilvantartas.NyilvantartasInst != null)
             {
-                i += Nyilvantartas.NyilvantartasInst.GetNum();
+                var gnum = Nyilvantartas.NyilvantartasInst.GetNum();
+                if (BookedRecords == 0 || BookedRecords != gnum)
+                {
+                    BookedRecords = gnum;
+                    i += BookedRecords;
+                    SUpdate = true;
+                }
             }
             if (Notification && Lista.ListaInstance != null)
             {
-                i += Lista.ListaInstance.GetKeyNum();
+                var gnum = WantedRecords = Lista.ListaInstance.GetKeyNum();
+                if (BookedRecords == 0 || BookedRecords != gnum)
+                {
+                    WantedRecords = gnum;
+                    i += WantedRecords;
+                    SUpdate = true;
+                }
             }
             if (i > 0)
             {
                 Each = i;
                 Add = 100/Each;
             }
-            if (Notification && Lista.ListaInstance != null)
+            if (Notification && Lista.ListaInstance != null && SUpdate)
             {
                 int Voldnum = Lista.VK;
                 int Poldnum = Lista.PK;
@@ -82,7 +98,7 @@ namespace SeeWanted
                 }
                 Lista.IsUpdating = false;
             }
-            if (Nyilvantartas.NyilvantartasInst != null)
+            if (Nyilvantartas.NyilvantartasInst != null && SUpdate)
             {
                 Nyilvantartas.NyilvantartasInst.RunUpdate();
             }
