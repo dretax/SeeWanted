@@ -15,6 +15,7 @@ namespace SeeWanted
         {
             Closing += Form1_FormClosing;
             InitializeComponent();
+            button2.UseCustomForeColor = true;
             button2.ForeColor = Color.Red;
             RunUpdate();
         }

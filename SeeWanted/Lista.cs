@@ -30,6 +30,9 @@ namespace SeeWanted
             WCC = new Dictionary<string, int>();
             InitializeComponent();
             metroProgressSpinner1.Maximum = 100;
+            button1.UseCustomForeColor = true;
+            button2.UseCustomForeColor = true;
+            button5.UseCustomForeColor = true;
             button1.ForeColor = Color.Red;
             button2.ForeColor = Color.Red;
             button5.ForeColor = Color.Green;

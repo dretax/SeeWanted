@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Panel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.checkBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -39,13 +40,14 @@
             this.button5 = new MetroFramework.Controls.MetroButton();
             this.button4 = new MetroFramework.Controls.MetroButton();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroLabel3);
             this.groupBox1.Controls.Add(this.metroProgressSpinner1);
             this.groupBox1.Controls.Add(this.metroLabel2);
             this.groupBox1.Controls.Add(this.checkBox1);
@@ -63,10 +65,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Körözési Panel";
             // 
+            // metroProgressSpinner1
+            // 
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(330, 146);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(38, 40);
+            this.metroProgressSpinner1.TabIndex = 1;
+            this.metroProgressSpinner1.UseSelectable = true;
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(245, 66);
+            this.metroLabel2.Location = new System.Drawing.Point(177, 103);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(114, 19);
             this.metroLabel2.TabIndex = 16;
@@ -77,7 +88,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(245, 48);
+            this.checkBox1.Location = new System.Drawing.Point(259, 125);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(98, 15);
             this.checkBox1.TabIndex = 15;
@@ -146,7 +157,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(281, 88);
+            this.numericUpDown1.Location = new System.Drawing.Point(215, 125);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             120,
             0,
@@ -166,14 +177,14 @@
             0,
             0});
             // 
-            // metroProgressSpinner1
+            // metroLabel3
             // 
-            this.metroProgressSpinner1.Location = new System.Drawing.Point(330, 146);
-            this.metroProgressSpinner1.Maximum = 100;
-            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
-            this.metroProgressSpinner1.Size = new System.Drawing.Size(38, 40);
-            this.metroProgressSpinner1.TabIndex = 1;
-            this.metroProgressSpinner1.UseSelectable = true;
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(230, 16);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(77, 19);
+            this.metroLabel3.TabIndex = 17;
+            this.metroLabel3.Text = "Üdvözöllek!";
             // 
             // Panel
             // 
@@ -204,6 +215,7 @@
         private MetroFramework.Controls.MetroCheckBox checkBox1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }
 

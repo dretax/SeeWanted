@@ -90,7 +90,7 @@ namespace SeeWanted
                 int Poldnum = Lista.PK;
                 Lista.IsUpdating = true;
                 Lista.ListaInstance.RunUpdate();
-                if (Voldnum < Lista.VK || Poldnum < Lista.PK)
+                if ((Voldnum < Lista.VK || Poldnum < Lista.PK) || SUpdate)
                 {
                     System.Media.SoundPlayer player =
                         new System.Media.SoundPlayer(SeeWanted.Properties.Resources.korozes);

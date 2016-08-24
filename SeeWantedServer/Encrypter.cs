@@ -1,4 +1,4 @@
-﻿namespace SeeWanted
+﻿namespace SeeWantedServer
 {
     using System;
     using System.IO;
@@ -14,10 +14,7 @@
     /// this may not be the most efficient way of handling encryption, so - as
     /// soon as you feel comfortable with it - you may want to redesign this class.
     /// </summary>
-    /// 
-    /// TODO: This is the Encrypter class of the SeeWanted application. The original keys will
-    /// TODO: not be provided for safety reasons.
-    internal sealed class REMOVETHISEncrypter
+    internal sealed class Encrypter
     {
         /// <summary>
         /// Encrypts specified plaintext using Rijndael symmetric key algorithm
@@ -141,8 +138,9 @@
             return cipherText;
         }
 
-        internal static string EncryptData(string plainText, string passPhrase = "testtesttesttes", 
-            string saltValue = "testtesttesttes", string hashAlgorithm = "SHA1", int passwordIterations = 1, string initVector = "@1U6c5Z4e5F1t9l1", int keySize = 192)
+        //TODO: This is only for demostration. Change pass, salt, and vector for safety reasons. I recommend Agile.NET's Code Encryption for ensured protection
+        internal static string EncryptData(string plainText, string passPhrase = "6qbp27H6p97JmsL", 
+            string saltValue = "g4A2IMkBEiK806W", string hashAlgorithm = "SHA1", int passwordIterations = 1, string initVector = "@1B2c3D4e5F6g7H8", int keySize = 192)
         {
             //return plainText;
             string cipherText = Encrypt
@@ -158,8 +156,9 @@
             return cipherText;
         }
 
-        internal static string DecryptData(string cipherText, string passPhrase = "testtesttesttes",
-            string saltValue = "testtesttesttes", string hashAlgorithm = "SHA1", int passwordIterations = 1, string initVector = "@1U6c5Z4e5F1t9l1", int keySize = 192)
+        //TODO: This is only for demostration. Change pass, salt, and vector for safety reasons. I recommend Agile.NET's Code Encryption for ensured protection
+        internal static string DecryptData(string cipherText, string passPhrase = "6qbp27H6p97JmsL",
+            string saltValue = "g4A2IMkBEiK806W", string hashAlgorithm = "SHA1", int passwordIterations = 1, string initVector = "@1B2c3D4e5F6g7H8", int keySize = 192)
         {
             //return cipherText;
             string plainText = Decrypt

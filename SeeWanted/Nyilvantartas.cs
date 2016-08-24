@@ -20,6 +20,8 @@ namespace SeeWanted
             Closing += Form1_FormClosing;
             InitializeComponent();
             metroProgressSpinner1.Maximum = 100;
+            button2.UseCustomForeColor = true;
+            button4.UseCustomForeColor = true;
             button2.ForeColor = Color.Red;
             button4.ForeColor = Color.Green;
             NyilvantartasInst = this;
