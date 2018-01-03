@@ -1,5 +1,6 @@
 # SeeWanted
-Wanted Sys for See MTA V2
+Eredetileg a SeeMTA V2-re szánt program, de az a szerver már a múlt, ahogy Tamási bácsi is.
+A program Nemzetközi Licensz alapján védett, amelyet a license.md alatt meg lehet találni.
 
 
 ![1](http://i.imgur.com/haZlq2h.png)
